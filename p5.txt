@@ -112,13 +112,22 @@ Se ha capturado una sesión SIP (archivo sip.cap.gz), que se puede abrir con Wir
 
 
 [Al terminar el ejercicio es recomendable hacer commit de los ficheros modificados]
-
 9. Fijémonos en las tramas siguientes a la número 46:
  ** ¿Se registra con éxito en el primer intento?
+
+	No, porque le llega un mensaje Status: 404 no autorizado en la trama 50 y envia el REGISTER otra vez en la trama 51
+
  ** ¿Cómo sabemos si el registro se ha realizado correctamente o no?
+
+	Porque nos llega un mensaje Status: 200 OK
+
  ** ¿Podrías identificar las diferencias entre el primer intento y el segundo de registro? (fíjate en el tamaño de los paquetes y mira a qué se debe el cambio)
+
+	El REGISTER correcto tiene una cabecera de autorizacion
+
  ** ¿Cuánto es el valor del tiempo de expiración de la sesión? Indica las unidades.
 
+	3600 segundos
 
 10. Una vez registrados, podemos efectuar una llamada. Vamos a probar con el servicio de eco de Ekiga que nos permite comprobar si nos hemos conectado correctamente. El servicio de eco tiene la dirección sip:500@ekiga.net. Veamos el INVITE de cerca.
  ** ¿Puede verse el nombre del que efectúa la llamada, así como su dirección SIP?
