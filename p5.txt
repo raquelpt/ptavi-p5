@@ -146,15 +146,26 @@ Se ha capturado una sesión SIP (archivo sip.cap.gz), que se puede abrir con Wir
 
 	En el primer INVITE no hay cabecera de autorización.
 
-
 11. Una vez conectado, estudia el intercambio de tramas.
  ** ¿Qué protocolo(s) se utiliza(n)? ¿Para qué sirven estos protocolos?
+
+	RTP. Para el envio de datos en tiempo real.
+
  ** ¿Cuál es el tamaño de paquete de los mismos?
+
+	RTP: 214 bytes
+
  ** ¿Se utilizan bits de padding?
+
+	Aparece la cabecera padding en los mensajes RTP con la información de False.
+
  ** ¿Cuál es la periodicidad de los paquetes que se envían?
+
+	20 ms
+
  ** ¿Cuántos bits/segundo estamos enviando?
 
-
+	((214 bytes * 8)/20) bits/milisegundos = 85600 bits/segundo
 
 [Al terminar el ejercicio es recomendable hacer commit de los ficheros modificados]
 
