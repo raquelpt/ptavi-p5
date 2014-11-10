@@ -222,19 +222,43 @@ Se ha capturado una sesión SIP (archivo sip.cap.gz), que se puede abrir con Wir
 
 14. En Telephony selecciona el menú VoIP calls. Verás que se lista la llamada de voz IP capturada en una ventana emergente. Selecciona esa llamada y pulsa el botón Graph.
  ** ¿Cuánto dura la conversación?
+
+	20.88 segundos
+
  ** ¿Cuáles son sus SSRC? ¿Por qué hay varios SSRCs? ¿Hay CSRCs?
 
+	Sus SSRC aparecen en dos mensajes RTP 196 y 661.
+
+	Porque sincroniza datos.
+
+	No hay CSRCs.
 
 15. Identifica la trama donde se finaliza la conversación.
  ** ¿Qué método SIP se utiliza?
+
+	 BYE
+
  ** ¿En qué trama(s)?
+
+	En las tramas 924, 925, 927 y 933.
+
  ** ¿Por qué crees que se envía varias veces?
 
+	Porque no esta recibiendo el 200 OK y lo está reenviando periodicamente.
 
 16. Finalmente, se cierra la aplicación de VozIP.
  ** ¿Por qué aparece una instrucción SIP del tipo REGISTER?
+
+	Para borrarle de la lista del servidor.	
+
  ** ¿En qué trama sucede esto?
+
+	En la trama 950 y 952.
+
  ** ¿En qué se diferencia con la instrucción que se utilizó con anterioridad (al principio de la sesión)?
+
+	En el caso de los ultimos REGISTER su Expires es 0, por lo que quiere que le borre de la lista del servidor 
+	antes de que pase la hora por la que se registro.
 
 
 
