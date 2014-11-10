@@ -171,18 +171,53 @@ Se ha capturado una sesión SIP (archivo sip.cap.gz), que se puede abrir con Wir
 
 12. Vamos a ver más a fondo el intercambio RTP. En Telephony hay una opción RTP. Empecemos mirando los flujos RTP.
  ** ¿Cuántos flujos hay? ¿por qué?
+
+	Hay dos flujos. Uno para el audio y otro para el video.
+
  ** ¿Cuántos paquetes se pierden?
+
+	Se pienden el 0% de los paquetes.
+
  ** ¿Cuál es el valor máximo del delta? ¿Y qué es lo que significa el valor de delta?
+
+	Max delta = 1290,44 ms at packet no. 297
+	Delta es la diferencia entre la llegada de un paquete frente la llegada del paquete anterior.
+
  ** ¿Cuáles son los valores de jitter (medio y máximo)? ¿Qué quiere decir eso? ¿Estamos ante una conversación de calidad?
+
+	Max jitter = 119,64 ms. Mean jitter = 42,50 ms.
+
+	Variacion de los tiempos de llegada de los paquetes, causada por congestion, sincronizacion o por las diferentes
+	rutas seguidas por los paquetes para alcanzar el destino.
+
+	No es una conversacion de buena calidad ya que si el jitter es grande tiene una capacidad grande
+ 	de variacion del retardo.
 
 
 13. Elige un paquete RTP de audio. Analiza el flujo de audio en Telephony -> RTP -> Stream Analysis.
  ** ¿Cuánto valen el delta y el jitter para el primer paquete que ha llegado?
+
+	El delta y el jitter valen 0.
+
  ** ¿Podemos saber si éste es el primer paquete que nos han enviado?
+
+	No podemos saber si es el primer paquete que han enviado pero si sabemos que es el primero que recibimos.
+
  ** Los valores de jitter son menores de 10ms hasta un paquete dado. ¿Cuál?
+
+	Hasta el paque 247.
+
  ** ¿A qué se debe el cambio tan brusco del jitter?
+
+	Porque el ancho de banda de la llamada se esta reduciendo.
+
  ** ¿Es comparable este cambio con el tiempo desde la recepción del paquete anterior? ¿Por qué?
+
+	No, ya que la delta aumenta mucho por el retardo y el jitter aumenta muy poco en comparación con la delta
+
  ** ¿Cuál es la dependencia entre el tiempo transcurrido desde el paquete anterior y el valor de jitter?
+
+	No se puede saber la dependencia exacta pero si podemos decir que ambos aumentan
 
 
 14. En Telephony selecciona el menú VoIP calls. Verás que se lista la llamada de voz IP capturada en una ventana emergente. Selecciona esa llamada y pulsa el botón Graph.
